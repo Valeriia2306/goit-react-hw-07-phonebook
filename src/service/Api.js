@@ -11,7 +11,7 @@ export const addContact = async contact => {
   return response.data;
 };
 
-export const deleteContact = async id => {
+export const deleteContactById = async id => {
   const response = await axios.get(`/contacts/${id}`);
   return response.data.id;
 };

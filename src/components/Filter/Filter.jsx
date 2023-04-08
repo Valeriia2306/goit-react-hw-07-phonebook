@@ -1,16 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from '../../Redux/createFilterSlice';
-import { getFilter } from '../../Redux/selectors';
+import { selectFilter } from '../../Redux/selectors';
 
-import PropTypes from 'prop-types';
 import { Input, Label } from './Filter.styled';
 
 const Filter = () => {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const handleFilterChange = e => {
-    dispatch(filterContacts(e.target.value.toLowerCase()));
+    dispatch(filterContacts(e.target.value));
   };
 
   return (
@@ -24,11 +23,6 @@ const Filter = () => {
       />
     </Label>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

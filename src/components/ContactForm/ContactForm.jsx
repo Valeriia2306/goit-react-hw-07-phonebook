@@ -1,19 +1,18 @@
 import { Formik, ErrorMessage } from 'formik';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../Redux/createSliceContacts';
+import { addNewContact } from 'Redux/operations';
 import newContact from '../../service/newContact';
-import { getContacts } from '../../Redux/selectors';
+import { selectContacts } from '../../Redux/selectors';
 
 // import styles
 import { Label, Form, Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const onSubmitForm = (values, { resetForm }) => {
     if (newContact(contacts, values.name)) {
-      dispatch(addContact(values));
+      dispatch(addNewContact(values));
       resetForm();
     }
   };
@@ -52,10 +51,6 @@ const ContactForm = () => {
       </Form>
     </Formik>
   );
-};
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
