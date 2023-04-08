@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import Contact from '../ContactItem/ContactItem';
-import filterOfContactsArray from '../../service/filterOfContactsArray';
+import { filteredContacts } from 'Redux/selectors';
 
 // styles
 import { ContactsList, LabelItem } from './ContactsList.styled';
 
 const ContactList = () => {
-  const contacts = useSelector(filterOfContactsArray);
+  const contacts = useSelector(filteredContacts);
   return (
     <ContactsList>
       {contacts[0] && (
