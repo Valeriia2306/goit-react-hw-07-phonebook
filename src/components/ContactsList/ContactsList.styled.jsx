@@ -10,7 +10,7 @@ const ContactsList = styled.ul`
 const LabelItem = styled.span`
   display: flex;
   margin-left: 10px;
-  gap: 30px;
+  gap: 180px;
   font-size: 18px;
   font-weight: 500;
   color: white;

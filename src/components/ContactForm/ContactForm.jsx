@@ -1,8 +1,8 @@
 import { Formik, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewContact } from 'Redux/operations';
-import newContact from '../../service/newContact';
-import { selectContacts } from '../../Redux/selectors';
+import newContact from 'service/newContact';
+import { selectContacts } from 'Redux/selectors';
 
 // import styles
 import { Label, Form, Input, Button } from './ContactForm.styled';
@@ -19,7 +19,7 @@ const ContactForm = () => {
 
   const initialValues = {
     name: '',
-    number: '',
+    phone: '',
   };
 
   return (
@@ -37,15 +37,15 @@ const ContactForm = () => {
           <ErrorMessage name="name" component="span" />
         </Label>
         <Label>
-          <span> Number</span>
+          <span>Phone</span>
           <Input
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage name="phone" component="span" />
         </Label>
         <Button type="submit"> Add contact</Button>
       </Form>

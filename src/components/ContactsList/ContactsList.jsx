@@ -15,8 +15,8 @@ const ContactList = () => {
           <span>Tell:</span>
         </LabelItem>
       )}
-      {contacts.map(({ id, name, number }) => (
-        <Contact key={id} id={id} name={name} number={number} />
+      {contacts.map(({ id, name, phone }) => (
+        <Contact key={id} id={id} name={name} phone={phone} />
       ))}
     </ContactsList>
   );
